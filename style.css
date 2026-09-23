@@ -55,6 +55,7 @@ img {
     font-size: 28px;
     font-weight: 900;
     letter-spacing: -2px;
+    flex-shrink: 0;
 }
 
 .logo span {
@@ -73,6 +74,7 @@ img {
     letter-spacing: 1.5px;
     color: #9da5af;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
 .header nav a:hover,
@@ -101,6 +103,7 @@ img {
     font-weight: 700;
     letter-spacing: 2px;
     color: #6f7884;
+    white-space: nowrap;
 }
 
 .hero {
@@ -662,27 +665,75 @@ footer {
     letter-spacing: 1.5px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
     .header {
-        padding: 0 4%;
+        padding: 0 5%;
+    }
+
+    .header nav {
+        gap: 24px;
     }
 
     .header-tagline {
         display: none;
     }
 
-    .hero {
-        grid-template-columns: 1fr;
-    }
-
     .hero-content {
-        min-height: 600px;
         padding: 80px 7%;
     }
 
+    .hero h1 {
+        font-size: clamp(48px, 6vw, 72px);
+    }
+
+    .about {
+        gap: 60px;
+    }
+
+    .dvd {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .header {
+        height: 68px;
+        padding: 0 5%;
+    }
+
+    .header nav {
+        gap: 22px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .header nav a {
+        font-size: 9px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-content {
+        min-height: auto;
+        padding: 90px 7% 70px;
+    }
+
     .hero-image {
-        min-height: 600px;
+        height: 600px;
+        min-height: 0;
+    }
+
+    .hero-image img {
+        object-position: center;
     }
 
     .about {
@@ -720,6 +771,10 @@ footer {
         height: 500px;
     }
 
+    .contact {
+        min-height: 600px;
+    }
+
     footer {
         flex-direction: column;
         gap: 15px;
@@ -729,56 +784,133 @@ footer {
 
 @media (max-width: 650px) {
 
+    body {
+        overflow-x: hidden;
+    }
+
     .header {
-        height: 65px;
-    }
-
-    .header nav {
-        gap: 15px;
-    }
-
-    .header nav a {
-        font-size: 8px;
-        letter-spacing: 1px;
+        height: 62px;
+        padding: 0 5%;
+        gap: 10px;
     }
 
     .logo {
         font-size: 22px;
     }
 
+    .header nav {
+        flex: 1;
+        justify-content: flex-end;
+        gap: 13px;
+        overflow-x: auto;
+        padding-left: 5px;
+        scrollbar-width: none;
+    }
+
+    .header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .header nav a {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+        white-space: nowrap;
+    }
+
     .hero-content {
-        padding: 70px 6%;
+        padding: 65px 6% 55px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: clamp(42px, 13vw, 58px);
+        line-height: 0.92;
         letter-spacing: -3px;
+        margin-bottom: 25px;
+    }
+
+    .hero-info {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .hero-info span {
+        font-size: 9px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 28px;
     }
 
     .hero-buttons {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 16px 20px;
     }
 
     .hero-image {
-        min-height: 500px;
+        height: 480px;
+        min-height: 0;
+    }
+
+    .hero-image img {
+        object-fit: cover;
+        object-position: center top;
     }
 
     .number-bg {
-        font-size: 260px;
+        font-size: 230px;
+        right: -5%;
+        bottom: -5%;
+    }
+
+    .hero-glow {
+        width: 250px;
+        height: 250px;
+        right: 0;
+        bottom: 10%;
     }
 
     .section {
-        padding: 80px 6%;
+        padding: 75px 6%;
+    }
+
+    .section-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .about {
+        gap: 40px;
     }
 
     .about-image {
-        height: 400px;
+        height: 390px;
     }
 
     .about-content h2,
     .section-heading h2 {
-        font-size: 45px;
+        font-size: clamp(38px, 11vw, 48px);
+        letter-spacing: -2px;
+    }
+
+    .about-content p,
+    .section-heading p {
+        font-size: 13px;
+        line-height: 1.8;
     }
 
     .stats {
@@ -786,6 +918,7 @@ footer {
     }
 
     .stat {
+        padding: 35px 20px;
         border-right: none;
         border-bottom: 1px solid var(--border);
     }
@@ -794,45 +927,151 @@ footer {
         border-bottom: none;
     }
 
+    .stat strong {
+        font-size: 20px;
+    }
+
     .club {
-        padding: 25px;
-        min-height: 180px;
+        padding: 25px 20px;
+        min-height: 160px;
         gap: 15px;
     }
 
+    .club-number {
+        font-size: 10px;
+    }
+
     .club-logo {
-        width: 65px;
-        height: 65px;
+        width: 60px;
+        height: 60px;
     }
 
     .club-content h3 {
-        font-size: 19px;
+        font-size: 18px;
+        letter-spacing: -0.5px;
+    }
+
+    .dvd {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 
     .dvd-content h2 {
-        font-size: 55px;
+        font-size: clamp(45px, 13vw, 58px);
         letter-spacing: -3px;
+    }
+
+    .dvd-content p {
+        font-size: 13px;
+    }
+
+    .dvd-button {
+        width: 100%;
+        justify-content: center;
     }
 
     .dvd-card {
-        height: 400px;
+        height: 380px;
+        width: 100%;
     }
 
     .dvd-card-number {
-        font-size: 70px;
+        font-size: 65px;
+        top: 15px;
+        right: 18px;
+    }
+
+    .dvd-play {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+    }
+
+    .dvd-card-info {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .dvd-card-info span {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .dvd-card-info strong {
+        font-size: 21px;
     }
 
     .contact {
-        padding: 90px 6%;
+        min-height: 550px;
+        padding: 80px 6%;
     }
 
     .contact-content h2 {
-        font-size: 55px;
+        font-size: clamp(45px, 13vw, 58px);
         letter-spacing: -3px;
+    }
+
+    .contact-content p {
+        font-size: 13px;
+    }
+
+    .contact-button {
+        width: 100%;
+        text-align: center;
     }
 
     footer {
         padding: 25px 6%;
         line-height: 1.7;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .header {
+        padding: 0 4%;
+    }
+
+    .header nav {
+        gap: 9px;
+    }
+
+    .header nav a {
+        font-size: 7px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-image {
+        height: 420px;
+    }
+
+    .about-image {
+        height: 340px;
+    }
+
+    .club {
+        padding: 20px 15px;
+    }
+
+    .club-logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .club-content h3 {
+        font-size: 16px;
+    }
+
+    .dvd-card {
+        height: 340px;
+    }
+
+    .dvd-card-info strong {
+        font-size: 18px;
     }
 }
