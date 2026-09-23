@@ -428,23 +428,9 @@ img {
     min-width: 0;
 }
 
-.club-content span {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #69727e;
-}
-
 .club-content h3 {
     font-size: 25px;
-    margin: 18px 0 10px;
     letter-spacing: -1px;
-}
-
-.club-content p {
-    font-size: 11px;
-    color: #858e9a;
-    letter-spacing: 1px;
 }
 
 .dvd {
@@ -522,12 +508,13 @@ img {
             rgba(0,108,255,0.25),
             rgba(5,7,10,0.9)
         ),
-        url("v12.jpeg");
+        url("./img/v12.jpeg");
     background-size: cover;
     background-position: center;
     border: 1px solid var(--border);
     box-shadow:
         0 30px 80px rgba(0,0,0,0.4);
+    cursor: pointer;
 }
 
 .dvd-card::after {
@@ -615,7 +602,7 @@ img {
             rgba(5, 7, 10, 0.97),
             rgba(5, 15, 28, 0.72)
         ),
-        url("/img/vr.png");
+        url("./img/v12.jpeg");
     background-size: cover;
     background-position: center;
     filter: grayscale(70%);
