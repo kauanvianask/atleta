@@ -522,7 +522,7 @@ img {
             rgba(0,108,255,0.25),
             rgba(5,7,10,0.9)
         ),
-        url("/img/v12.jpeg");
+        url("v12.jpeg");
     background-size: cover;
     background-position: center;
     border: 1px solid var(--border);
